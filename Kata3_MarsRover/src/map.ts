@@ -1,28 +1,28 @@
-import {Point} from "./point";
-import {Direction} from "./direction";
-
+import {Position} from "./Position";
+import {Direction} from "./Direction";
 
 export class Map {
+    MAX_X = 9;
+    MAX_Y = 9;
 
-    readonly MAX_Y = 10;
-    private MAX_X: number = 10;
-
-    constructor(private obstacles?: Point[]) {
+    constructor(private obstacles?: { y: number, x: number }[]) {
     }
 
-    public moveNext(point: Point, direction: Direction): Point {
-        let x = point.x;
-        let y = point.y;
+    moveNext(point: Position, direction: Direction) {
+        let x: number = point.x;
+        let y: number = point.y;
 
-        if (direction.toString() === "N") y = (y + 1) % this.MAX_Y
-        if (direction.toString() === "E") x = (x + 1) % this.MAX_X
-        if (direction.toString() === "S") y = y === 0 ? this.MAX_Y - 1 : y - 1
-        if (direction.toString() === "W") x = x === 0 ? this.MAX_X - 1 : x-1;
-        this.validateMoveWithoutObstacle(new Point(x, y))
-        return new Point(x, y);
+        if(direction.toString() === 'N') y = y >= this.MAX_Y ?  0 : y + 1 ;
+        if(direction.toString() === 'E') x = x >= this.MAX_X ?  0 : x + 1;
+        if(direction.toString() === 'S') y = y === 0 ?  this.MAX_Y : y - 1;
+        if(direction.toString() === 'W') x = x  === 0 ?  this.MAX_X : x - 1;
+
+
+        this.validateMoveNextWithObstacles(new Position(y, x));
+        return new Position(y, x);
     }
 
-    private validateMoveWithoutObstacle(point: Point) {
-        if(this.obstacles?.some(obstacle => obstacle.x === point.x && obstacle.y === point.y)) throw new Error("Cannot move this direction, Obstacle exists")
+    private validateMoveNextWithObstacles(position: Position) {
+        if(this.obstacles?.some(obstacle => obstacle.x === position.x && obstacle.y === position.y)) throw new Error('Blocked by obstacle')
     }
 }
