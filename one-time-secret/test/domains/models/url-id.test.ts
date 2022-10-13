@@ -9,4 +9,8 @@ describe('UrlId tests', () => {
     it('should throw UrlIdTooShortError if UrlId characters is less than 10', () => {
         expect(() => new UrlId('ab')).toThrow(UrlIdTooShortError);
     });
+    it('should return string presentation on the toString method', () => {
+        const urlId = new UrlId('abcdaskfdljaskdl');
+        expect(urlId.toString()).toBe('abcdaskfdljaskdl');
+    });
 });
