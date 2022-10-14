@@ -25,7 +25,8 @@ describe('MongoSecretRepository Tests', () => {
         SecretModel.findOne = jest.fn().mockResolvedValue({secret: 'abcd'});
         const urlId = new UrlId('abcaabcaabca');
         const mongoSecretRepository = new MongoSecretRepository();
-        expect(await mongoSecretRepository.retrieveSecret(urlId)).toEqual(new Secret('abcd'));
+        const retrivedSecret = await mongoSecretRepository.retrieveSecret(urlId);
+        expect(retrivedSecret).toEqual(new Secret('abcd'));
         expect(SecretModel.findOne).toBeCalledTimes(1);
         expect(SecretModel.findOne).toBeCalledWith({urlId: urlId.toString()});
     });
