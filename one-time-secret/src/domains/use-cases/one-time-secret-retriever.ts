@@ -8,9 +8,11 @@ export class OneTimeSecretRetriever implements SecretRetriever {
     }
 
     async retrieveSecret(urlId: UrlId): Promise<Secret> {
-        const secret = this.repo.retrieveSecret(urlId);
-        await this.repo.removeSecret(urlId);
-        return secret
+        const secret = await this.repo.retrieveSecret(urlId);
+        if (secret !== null) {
+            await this.repo.removeSecret(urlId);
+        }
+        return secret;
     }
 
 }

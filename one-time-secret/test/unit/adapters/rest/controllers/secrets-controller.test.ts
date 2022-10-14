@@ -1,8 +1,8 @@
 import {NextFunction, request, Request, Response, response} from 'express';
-import {ValidationError} from '../../../../src/domains/models/errors/validation-error';
-import {SecretStorer} from '../../../../src/domains/ports/in/secret-storer';
-import {SecretsController} from '../../../../src/adapters/rest/controllers/secrets-controller';
-import {UrlId} from '../../../../src/domains/models/url-id';
+import {ValidationError} from '../../../../../src/domains/models/errors/validation-error';
+import {SecretStorer} from '../../../../../src/domains/ports/in/secret-storer';
+import {SecretsController} from '../../../../../src/adapters/rest/controllers/secrets-controller';
+import {UrlId} from '../../../../../src/domains/models/url-id';
 
 describe('SecretsController Tests', () => {
     it('Should throw validation error when if the body of request is not provided', () => {

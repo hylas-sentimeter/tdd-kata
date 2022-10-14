@@ -1,6 +1,6 @@
 export class SecretTooShortError extends Error {
     constructor() {
-        super();
-        this.message = 'Secret is less than 3 characters';
+        super('Secret is less than 3 characters');
+        this.name = SecretTooShortError.name;
     }
 }

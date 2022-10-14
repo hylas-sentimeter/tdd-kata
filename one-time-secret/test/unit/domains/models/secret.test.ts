@@ -1,6 +1,6 @@
-import {Secret} from '../../../src/domains/models/secret';
-import {SecretTooShortError} from '../../../src/domains/models/errors/secret-too-short-error';
-import {UrlId} from '../../../src/domains/models/url-id';
+import {Secret} from '../../../../src/domains/models/secret';
+import {SecretTooShortError} from '../../../../src/domains/models/errors/secret-too-short-error';
+import {UrlId} from '../../../../src/domains/models/url-id';
 
 describe('Secret tests', () => {
     it('should create instance of secret class', () => {

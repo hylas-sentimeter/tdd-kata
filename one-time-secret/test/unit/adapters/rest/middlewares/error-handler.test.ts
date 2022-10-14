@@ -1,9 +1,9 @@
 import {NextFunction, request, Request, response, Response} from 'express';
-import {errorHandler} from '../../../../src/adapters/rest/middlewares/error-handler';
-import {ValidationError} from '../../../../src/domains/models/errors/validation-error'
+import {errorHandler} from '../../../../../src/adapters/rest/middlewares/error-handler';
+import {ValidationError} from '../../../../../src/domains/models/errors/validation-error'
 import {
     SecretNotFoundInRepositoryError
-} from '../../../../src/domains/models/errors/secret-not-found-in-repository-error';
+} from '../../../../../src/domains/models/errors/secret-not-found-in-repository-error';
 describe('ErrorHandler Tests', () => {
     it('Should send a uncontrolled error', () => {
         const req: Request = expect.any(request);

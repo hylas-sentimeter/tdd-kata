@@ -1,6 +1,6 @@
 export class UrlIdTooShortError extends Error {
     constructor() {
-        super();
-        this.message = 'UrlId is less than 10 character';
+        super('UrlId is less than 10 character');
+        this.name = UrlIdTooShortError.name;
     }
 }

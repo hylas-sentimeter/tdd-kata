@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
-import {MongoSecretRepository} from '../../../src/adapters/repositories/mongo-secret-repository';
-import {Secret} from '../../../src/domains/models/secret';
-import {UrlId} from '../../../src/domains/models/url-id';
-import {SecretModel} from '../../../src/adapters/repositories/secret-model';
-import {SecretNotFoundInRepositoryError} from '../../../src/domains/models/errors/secret-not-found-in-repository-error';
+import {MongoSecretRepository} from '../../../../src/adapters/repositories/mongo-secret-repository';
+import {Secret} from '../../../../src/domains/models/secret';
+import {UrlId} from '../../../../src/domains/models/url-id';
+import {SecretModel} from '../../../../src/adapters/repositories/secret-model';
+import {SecretNotFoundInRepositoryError} from '../../../../src/domains/models/errors/secret-not-found-in-repository-error';
 
 describe('MongoSecretRepository Tests', () => {
     it('Should connect mongodb when construct', () => {
