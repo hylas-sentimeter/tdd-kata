@@ -1,7 +1,6 @@
 import {NextFunction, request, Request, Response, response} from 'express';
 import {SecretsByIdController} from '../../../../src/adapters/rest/controllers/secrets-by-id-controller';
 import {ValidationError} from '../../../../src/domains/models/errors/validation-error';
-import {SecretRepository} from '../../../../src/domains/ports/out/secret-repository';
 import {
     SecretNotFoundInRepositoryError
 } from '../../../../src/domains/models/errors/secret-not-found-in-repository-error';
